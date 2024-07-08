@@ -89,7 +89,7 @@ searchBtn.addEventListener('click', () => {
     filteredData = dataArr.filter((row) => row['Discipline'].toLowerCase().includes(searchTerm));
   }
 
-  currentData = filteredData;
+  currentData = filteredData.sort((a, b) => b['Marks'] - a['Marks']); // Sort the filtered data in position-wise sequence
 
   // Hide the loading popup
   loadingPopup.style.display = 'none';
@@ -97,15 +97,15 @@ searchBtn.addEventListener('click', () => {
   displayData(currentData);
 });
 
-// Position-wise sorting
-positionWiseBtn.addEventListener('click', () => {
-  // Show the loading popup
-  loadingPopup.style.display = 'block';
+// Position-wise sorting (not needed anymore)
+// positionWiseBtn.addEventListener('click', () => {
+//   // Show the loading popup
+//   loadingPopup.style.display = 'block';
 
-  currentData.sort((a, b) => b['Marks'] - a['Marks']);
+//   currentData.sort((a, b) => b['Marks'] - a['Marks']);
 
-  // Hide the loading popup
-  loadingPopup.style.display = 'none';
+//   // Hide the loading popup
+//   loadingPopup.style.display = 'none';
 
-  displayData(currentData);
-});
+//   displayData(currentData);
+// });
