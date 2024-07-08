@@ -23,23 +23,17 @@ function parseDataHandler() {
         const row = rows[i];
         if (row === "") continue;
 
-        const cells = row.match(/^(\d+) (\d+) (\d+) "(.+?)" (.+)$/);
-        if (!cells) continue;
-
-        const sr = parseInt(cells[1]);
-        const roll = parseInt(cells[2]);
-        const cnic = parseInt(cells[3]);
-        const name = cells[4];
-        const discipline = cells[5];
-        const marks = parseInt(cells[6]);
+        const [sr, roll, cnic, ...rest] = row.split(" ");
+        const name = rest.slice(0, -1).join(" ");
+        const discipline = rest[rest.length - 1];
 
         const newData = {
-          Sr: sr,
-          Roll: roll,
-          CNIC: cnic,
+          Sr: parseInt(sr),
+          Roll: parseInt(roll),
+          CNIC: parseInt(cnic),
           Name: name,
           Discipline: discipline,
-          Marks: marks
+          Marks: 0 // assuming marks is not present in the data
         };
 
         searchData.push(newData);
