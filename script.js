@@ -12,42 +12,44 @@ const notification = document.getElementById("notification");
 parseBtn.addEventListener("click", parseDataHandler);
 
 function parseDataHandler() {
-  fetch('Data/GAT Result 2024 Postgraduate Test 1.txt')
-  .then(response => response.text())
-  .then(data => {
-      searchData = [];
-      originalData = [];
-      const rows = data.trim().split("\n");
+  // Fetching data from XLSX file
+  const xlsx = require('xlsx');
+  const workbook = xlsx.readFile('Data/GAT Result 2024 Postgraduate Test 1.xlsx');
+  const sheetName = workbook.SheetNames[0];
+  const worksheet = workbook.Sheets[sheetName];
 
-      for (let i = 0; i < rows.length; i++) {
-        const row = rows[i];
-        if (row === "") continue;
+  searchData = [];
+  originalData = [];
 
-        const [sr, roll, cnic, ...rest] = row.split(" ");
-        const name = rest.slice(0, -1).join(" ");
-        const discipline = rest[rest.length - 1];
+  // Parsing data from XLSX file
+  const data = xlsx.utils.sheet_to_json(worksheet, { header: 1 });
+  data.shift(); // Remove header row
 
-        const newData = {
-          Sr: parseInt(sr),
-          Roll: parseInt(roll),
-          CNIC: parseInt(cnic),
-          Name: name,
-          Discipline: discipline,
-          Marks: 0 // assuming marks is not present in the data
-        };
+  for (let i = 0; i < data.length; i++) {
+    const row = data[i];
+    const sr = parseInt(row[0]);
+    const roll = parseInt(row[1]);
+    const cnic = row[2];
+    const name = row[3];
+    const discipline = row[4];
+    const marks = parseInt(row[5]);
 
-        searchData.push(newData);
-        originalData.push(newData);
-      }
+    const newData = {
+      Sr: sr,
+      Roll: roll,
+      CNIC: cnic,
+      Name: name,
+      Discipline: discipline,
+      Marks: marks
+    };
 
-      notification.innerHTML = "Data parsed successfully!";
-      notification.classList.add("show");
-      displayData(originalData);
-    })
-  .catch(error => {
-      notification.innerHTML = "Error: " + error.message;
-      notification.classList.add("show");
-    });
+    searchData.push(newData);
+    originalData.push(newData);
+  }
+
+  notification.innerHTML = "Data parsed successfully!";
+  notification.classList.add("show");
+  displayData(originalData);
 }
 
 searchBtn.addEventListener("click", searchHandler);
