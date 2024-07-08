@@ -107,7 +107,7 @@ h6 {
 }
 
 .container table {
-  max-width: 90%;
+  max-width: 88%;
   border-collapse: collapse;
   margin-top: 20px;
 }
@@ -170,7 +170,8 @@ footer {
   margin: 20px;
   font-size: 28px;
   text-align: center;
-}  
+}
+  
 }
 
 /* Additional media query for smaller mobile devices */
@@ -178,9 +179,6 @@ footer {
   .container {
 
     padding: 5px;
-  }
-  .container textarea {
-    height: 80px;
   }
   .container input[type="text"] {
     padding: 5px;
@@ -199,4 +197,5 @@ footer {
   font-size: 22px;
   text-align: center;
   }
+  
 }
