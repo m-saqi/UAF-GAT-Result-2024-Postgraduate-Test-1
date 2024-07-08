@@ -1,0 +1,171 @@
+@import url(http://fonts.googleapis.com/earlyaccess/amiri.css);
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 20px;
+  margin-right: 30px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  margin: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: Green;
+  text-shadow: 0.25px 0.25px 1px rgba(0, 0, 0, 0.5);
+}
+
+h4 {
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  margin-top: -15px;
+  margin-bottom: 25px;
+  color: #234;
+  font-size: 12px;
+  text-shadow: 0.25px 0.25px 1px rgba(0, 0, 0, 0.5);
+}
+
+h6 {
+  text-align: center;
+  font-size: 15px;
+}
+
+/* Make the container responsive */
+.container {
+  width: 100%; /* Take full width on mobile devices */
+  max-width: 800px; /* Limit width on desktop devices */
+  margin: 20px auto; /* Add margin on mobile devices */
+}
+
+
+.container button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.container button:hover {
+  background-color: #3e8e41;
+}
+
+.container input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 60% auto;
+  margin-bottom: 10px;
+}
+
+.container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.container th, .container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.notification {
+  background-color: #dff0df;
+  padding: 5px 10px;
+  border: 1px solid #3e8e41;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #666;
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  z-index: 1;
+}
+
+.notification.show {
+  display: block;
+}
+
+footer {
+	background-color: #4CAF50;
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	margin: 20px;
+	border-radius: 5px 5px 5px 5px;
+  margin-top: 30px;
+}
+
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .container input[type="text"] {
+    width: 50%; /* Take full width on mobile devices */
+  }
+  .container button {
+    padding: 10px 20px;
+    width: 40%; /* Take full width on mobile devices */
+  }
+  .container table {
+    font-size: 12px;
+  }
+  .container th, .container td {
+    padding: 5px;
+  }
+  h1 {
+  margin: 20px;
+  font-size: 28px;
+  text-align: center;
+}
+  
+}
+
+/* Additional media query for smaller mobile devices */
+@media only screen and (max-width: 400px) {
+  .container {
+    margin: -10px auto;
+    padding: 5px;
+  }
+  .container textarea {
+    height: 80px;
+  }
+  .container input[type="text"] {
+    padding: 5px;
+  }
+  .container button {
+    padding: 5px 10px;
+  }
+  .container table {
+    font-size: 10px;
+  }
+  .container th, .container td {
+    padding: 3px;
+  }
+  h1 {
+  margin: 20px;
+  font-size: 22px;
+  text-align: center;
+  }
+  
+}
